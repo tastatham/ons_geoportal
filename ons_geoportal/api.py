@@ -39,11 +39,7 @@ def get_boundaries(
 
     admin_types = ["lad"]
 
-    epsg = [
-        4326,
-        3857,
-        27700  # British National Grid
-    ]
+    epsg = [4326, 3857, 27700]
 
     if geom_type in census_types:
         boundary, geom, fields = _get_census_boundaries(geom_type)
