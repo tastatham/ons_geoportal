@@ -137,23 +137,17 @@ def _get_admin_boundaries(geom_type):
 
     boundary = "Administrative_Boundaries/"
 
-    geom_types = [
-        "lad",
-    ]
-
     fields = [
         "objectid",
-        "lad18cd",
-        "lad18nm",
         "shape",
         "st_area",
         "st_length",
     ]
 
     if geom_type == "lad":
+
         geom = "Local_Authority_Districts_December_2018_Boundaries_UK_BGC/"
-    else:
-        raise ValueError(f"Only {geom_types} are supported")
+        fields += ["lad18cd", "lad18nm"]
 
     return boundary, geom, fields
 
