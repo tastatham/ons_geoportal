@@ -35,7 +35,7 @@ def get_boundaries(
         GeoDataFrame containing attribute and geometry values
     """
 
-    census_types = ["lsoa"]
+    census_types = ["msoa", "lsoa", "oa"]
 
     admin_types = ["lad"]
 
@@ -107,23 +107,26 @@ def _get_census_boundaries(geom_type):
 
     boundary = "Census_Boundaries/"
 
-    geom_types = [
-        "lsoa",
-    ]
-
     fields = [
         "objectid",
-        "lsoa11cd",
-        "lsoa11nm",
         "shape",
         "st_area",
         "st_length",
     ]
 
-    if geom_type == "lsoa":
+    if geom_type == "msoa":
+
+        geom = "Middle_Super_Output_Areas_December_2011_Boundaries/"
+        fields += ["msoa11cd", "msoa11nm"]
+
+    elif geom_type == "lsoa":
+
         geom = "Lower_Super_Output_Areas_December_2011_Boundaries/"
-    else:
-        raise ValueError(f"Only {geom_types} are supported")
+        fields += ["lsoa11cd", "lsoa11nm"]
+
+    elif geom_type == "oa":
+        geom = "Output_Area_December_2011_Boundaries/"
+        fields += ["oa11cd", "lad11cd"]
 
     return boundary, geom, fields
 
