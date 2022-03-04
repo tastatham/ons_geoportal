@@ -77,22 +77,6 @@ def get_boundaries(
     )
 
 
-def get_postcodes():
-    """"""
-
-
-def get_lookups():
-    """"""
-
-
-def get_products():
-    """"""
-
-
-def get_uprns():
-    """"""
-
-
 def _check_layer_types(layer_type):
     """Function checks boundary layer type"""
 
@@ -218,3 +202,18 @@ def _format_params(cols, fields, where, crs, precision):
         "geometryPrecision": f"{precision}",
     }
 
+
+def get_postcodes():
+    """"""
+
+
+def get_lookups():
+    """"""
+
+
+def get_products():
+    """"""
+
+
+def get_uprns():
+    """"""
